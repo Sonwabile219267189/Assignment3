@@ -17,7 +17,7 @@ public class SecretaryFactory {
         //check if the values are not null
         if (Name.isEmpty() || LastName.isEmpty()  )
         {
-            System.out.println("Enter all the required information.");
+            System.out.println("Enter all the required information..");
         }
 
         Secretary secr = new Secretary.Builder()

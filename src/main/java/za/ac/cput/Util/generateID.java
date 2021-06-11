@@ -9,7 +9,8 @@ import java.util.UUID;
 
 public class generateID {
     //this is method which will generate a random ID, when pulled across other classes
-    public static String GenerateID(){
+    public static String GenerateID()
+    {
         return UUID.randomUUID().toString();
     }
 

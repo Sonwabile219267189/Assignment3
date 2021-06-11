@@ -1,5 +1,9 @@
 package za.ac.cput.Factory;
-
+/*  ConsultationRecordFactory.java
+    Factory for ConsultationRecordFactory
+    Author: Xolani Ganta (216066115)
+    Date: 6 June 2021
+ */
 import za.ac.cput.Entity.ConsultationRecord;
 import za.ac.cput.Util.GenerateConsultationDate;
 import za.ac.cput.Util.generateID;

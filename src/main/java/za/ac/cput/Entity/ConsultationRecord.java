@@ -1,4 +1,9 @@
 package za.ac.cput.Entity;
+/*  ConsultationRecord.java
+    Entity for ConsultationRecord
+    Author: Xolani Ganta (216066115)
+    Date: 6 June 2021
+ */
 
 import java.time.LocalDateTime;
 

@@ -4,7 +4,7 @@ package za.ac.cput.Factory;
 //        PatientFactory.java
 //        Entity for the PatientFactory
 //        Author: Stefan Groenewald(219104891)
-//        Date: 10 May 2021
+//        Date: 10 June 2021
 
 import za.ac.cput.Entity.Patient;
 

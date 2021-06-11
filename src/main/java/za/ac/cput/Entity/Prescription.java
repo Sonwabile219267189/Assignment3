@@ -1,12 +1,15 @@
 /*  Prescription.java
-    Entity for the Employee
+    Entity for the Prescription
     Author: Sonwabile Gxoyiya (219267189)
     Date: 6 June 2021
  */
 
 package za.ac.cput.Entity;
 
+
+
 public class Prescription {
+
     private int prescriptionID;
     private int medicineID;
     private String medicineName;
@@ -16,7 +19,7 @@ public class Prescription {
     private String reason;
 
 
-    public Prescription(Builder builder){
+     private Prescription(Builder builder){
         this.prescriptionID = builder.prescriptionID;
         this.prescriptionDate = builder.prescriptionDate;
         this.medicineID = builder.medicineID;
@@ -27,10 +30,13 @@ public class Prescription {
     }
 
     public static class Builder{
-        private String medicineName, directions, prescriptionDate, reason ;
-        private int dosage;
-        private int medicineID;
         private int prescriptionID;
+        private int medicineID;
+        private String medicineName;
+        private String directions;
+        private int dosage;
+        private String prescriptionDate;
+        private String reason;
 
         public Builder setPrescriptionID(int prescriptionID){
             this.prescriptionID = prescriptionID;
@@ -66,5 +72,36 @@ public class Prescription {
             this.dosage = dosage;
             return this;
         }
+
+        public Prescription build(){
+            return new Prescription(this);
+        }
+
+        public Builder copy(Prescription prescription){
+            this.prescriptionID = prescription.prescriptionID;
+            this.medicineID = prescription.medicineID;
+            this.medicineName = prescription.medicineName;
+            this.directions = prescription.directions;
+            this.dosage = prescription.dosage;
+            this.prescriptionDate = prescription.prescriptionDate;
+            this.reason = prescription.reason;
+            return this;
+        }
+
+    }
+
+
+
+    @Override
+    public String toString() {
+        return "Prescription{" +
+                "prescriptionID=" + prescriptionID +
+                ", medicineID=" + medicineID +
+                ", medicineName='" + medicineName + '\'' +
+                ", directions='" + directions + '\'' +
+                ", dosage=" + dosage +
+                ", prescriptionDate='" + prescriptionDate + '\'' +
+                ", reason='" + reason + '\'' +
+                '}';
     }
 }

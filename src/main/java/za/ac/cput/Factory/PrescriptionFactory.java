@@ -7,5 +7,5 @@
 
 package za.ac.cput.Factory;
 
-public class PrescriptionFactory {
+public class   PrescriptionFactory {
 }

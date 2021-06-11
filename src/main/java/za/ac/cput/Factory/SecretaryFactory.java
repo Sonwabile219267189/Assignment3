@@ -15,7 +15,7 @@ public class SecretaryFactory {
         String ID = generateID.GenerateID();
         
         //check if the values are not null
-        if (Name.isEmpty() || LastName.isEmpty()  )
+        if (Name.isEmpty() || LastName.isEmpty() || salary == 0  )
         {
             System.out.println("Enter all the required information..");
         }

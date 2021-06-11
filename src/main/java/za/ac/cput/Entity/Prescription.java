@@ -19,7 +19,7 @@ public class Prescription {
     private String reason;
 
 
-     private Prescription(Builder builder){
+     public Prescription(Builder builder){
         this.prescriptionID = builder.prescriptionID;
         this.prescriptionDate = builder.prescriptionDate;
         this.medicineID = builder.medicineID;

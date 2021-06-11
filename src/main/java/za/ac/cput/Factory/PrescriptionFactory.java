@@ -7,5 +7,17 @@
 
 package za.ac.cput.Factory;
 
+import za.ac.cput.Entity.Prescription;
+
+public class PrescriptionFactory {
+    //Prescription p = new Prescription();
+
+    public void generatePrescription()
+    {
+
+    }
+
+}
+
 
 

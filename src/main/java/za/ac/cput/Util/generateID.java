@@ -8,7 +8,7 @@ package za.ac.cput.Util;
 import java.util.UUID;
 
 public class generateID {
-    //this is method which will generate a random ID, when pulled across other classes
+    //this is method which will generate a random setID, when pulled across other classes
     public static String GenerateID(){
         return UUID.randomUUID().toString();
     }

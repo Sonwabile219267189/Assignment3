@@ -2,7 +2,6 @@ package za.ac.cput.Repository;
 
 import za.ac.cput.Entity.Patient;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -32,7 +31,8 @@ public class PatientRepostitory implements IPatientRepository{
             return pat;
 
         }
-        public Patient read(String patientID){
+
+    public Patient read(String patientID){
             for (Patient p : patDatabase){
                 if (p.getPatientID().equals(patientID)){
                     return p;
@@ -53,8 +53,9 @@ public class PatientRepostitory implements IPatientRepository{
                 return null;
 
         }
-        @Override
-        public boolean delete (String patID) {
+
+    @Override
+        public boolean delete(String patID) {
 
             Patient patientToDelete = read(patID);
             if(patientToDelete==null)

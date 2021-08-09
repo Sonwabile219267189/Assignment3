@@ -8,7 +8,7 @@ package za.ac.cput.Entity;
 
 public class Doctor
 {
-    private int doctorID;
+    private String doctorID;
     private String firstName, lastName;
     private double salary;
 
@@ -21,7 +21,8 @@ public class Doctor
     }
 
 
-    public int getDoctorID() {
+    public String getDoctorID()
+    {
         return doctorID;
     }
 
@@ -41,11 +42,11 @@ public class Doctor
 
     public static class Builder
     {
-        private int doctorID;
+        private String doctorID;
         private String firstName, lastName;
         private double salary;
 
-        public Builder  setDoctorID(int doctorID) {
+        public Builder  setDoctorID(String doctorID) {
             this.doctorID = doctorID;
             return this;
         }
@@ -80,7 +81,17 @@ public class Doctor
         }
 
     }
+   public Doctor setFirstName(String firstname)
+   {
+       this.firstName = firstname;
+       return this;
+   }
 
+    public Doctor setLastName(String lastname)
+    {
+        this.lastName = lastname;
+        return this;
+    }
     @Override
     public String toString() {
         return "Doctor{" +

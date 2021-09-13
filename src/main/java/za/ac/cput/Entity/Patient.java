@@ -25,12 +25,21 @@ public class Patient {
     }
     public void payBill(){}
 
-    private Patient (Builder builder){
+    public Patient (Builder builder){
         this.age=builder.age;
         this.firstName=builder.firstName;
         this.patientID= builder.patientID;
         this.gender=builder.gender;
 
+
+    }
+
+    public String getPatientID() {
+        return patientID;
+    }
+
+    public void setPatientID(String patientID) {
+        this.patientID = patientID;
     }
 
     public static class Builder {

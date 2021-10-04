@@ -8,7 +8,7 @@ package za.ac.cput.Factory;
 import za.ac.cput.Entity.Cashier;
 
 public class CashierFactory {
-    public static Cashier createsCashier(int cashierID,String name, String lastname, double salary){
+    public static Cashier createsCashier(String cashierID,String name, String lastname, double salary){
         Cashier cashier = new Cashier.Builder()
                 .setCashierID(cashierID)
                 .setName(name)
@@ -19,8 +19,8 @@ public class CashierFactory {
     }
     public static void main(String[] args) {
 
-        Cashier cashier = CashierFactory.createsCashier(12345,"Felicia","Jacobs",950.000);
-        Cashier cashier1 = CashierFactory.createsCashier(52684,"Amanda", "London",950.000);
+        Cashier cashier = CashierFactory.createsCashier("12345","Felicia","Jacobs",950.000);
+        Cashier cashier1 = CashierFactory.createsCashier("52684","Amanda", "London",950.000);
 
     }
 

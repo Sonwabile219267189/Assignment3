@@ -10,8 +10,8 @@ package za.ac.cput.Entity;
 
 public class Prescription {
 
-    private int prescriptionID;
-    private int medicineID;
+    private String prescriptionID;
+    private String medicineID;
     private String medicineName;
     private String directions;
     private int dosage;
@@ -30,20 +30,20 @@ public class Prescription {
     }
 
     public static class Builder{
-        private int prescriptionID;
-        private int medicineID;
+        private String prescriptionID;
+        private String medicineID;
         private String medicineName;
         private String directions;
         private int dosage;
         private String prescriptionDate;
         private String reason;
 
-        public Builder setPrescriptionID(int prescriptionID){
+        public Builder setPrescriptionID(String prescriptionID){
             this.prescriptionID = prescriptionID;
             return this;
         }
 
-        public Builder setMedicineID(int medicineID){
+        public Builder setMedicineID(String medicineID){
             this.medicineID = medicineID;
             return this;
         }

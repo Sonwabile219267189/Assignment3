@@ -29,7 +29,7 @@ class CashierFactoryTest {
 
     @Test
     public void createCashier() {
-        Cashier cashier = CashierFactory.createsCashier(12345,"Felicia", "Jacobs",950.000);
+        Cashier cashier = CashierFactory.createsCashier("12345","Felicia", "Jacobs",950.000);
         System.out.println(cashier);
     }
 

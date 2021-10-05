@@ -7,7 +7,7 @@ package za.ac.cput.Entity;
 
 public class Cashier  {
 
-    private int cashierID = 988795;
+    private String cashierID = "988795";
     private String name= "Felicia";
     private String lastname= "Jacobs";
     private double salary = 950.000;
@@ -29,7 +29,11 @@ public class Cashier  {
                 '}';
     }
 
-    protected Cashier(int cashierID, String name, String lastname, double salary) {
+    public String getCashierID() {
+        return cashierID;
+    }
+
+    protected Cashier(String cashierID, String name, String lastname, double salary) {
         this.cashierID = cashierID;
         this.name = name;
         this.lastname = lastname;
@@ -37,13 +41,13 @@ public class Cashier  {
     }
 
     public static class Builder{
-        private int cashierID;
+        private String cashierID;
         private String name;
         private String lastname;
         private double salary;
 
 
-        public Builder setCashierID(int cashierID) {
+        public Builder setCashierID(String cashierID) {
             this.cashierID = cashierID;
             return this;
         }
@@ -68,6 +72,7 @@ public class Cashier  {
         public Cashier build() {
             return new Cashier (cashierID, name, lastname,salary);
         }
+
         public Builder copy (Cashier cashier) {
             this.cashierID = cashier.cashierID;
             this.name = cashier.name;

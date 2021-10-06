@@ -12,7 +12,7 @@ public class SecretaryFactory {
     public static Secretary createSecretary(String Name,String LastName,Double salary){
 
        //generate a random unique id for the secretary
-        String ID = generateID.GenerateID();
+        String ID = generateID.generateID();
         
         //check if the values are not null
         if (Name.isEmpty() || LastName.isEmpty() || salary == 0  )

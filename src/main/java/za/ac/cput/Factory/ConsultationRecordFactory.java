@@ -15,14 +15,14 @@ public class ConsultationRecordFactory {
     public static ConsultationRecord createConsultationRecord(String description){
 
         //generate a random unique id for the Consultation
-        String consultationID = generateID.GenerateID();
+        String consultationID = generateID.generateID();
 
         LocalDateTime consultationDate = GenerateConsultationDate.generateConsultationDate();
 
         //check if the Values  are not null
         if (description.isEmpty()  )
         {
-            System.out.println("Enter all the required information..");
+            System.out.println("Enter all the required information...");
         }
 
         ConsultationRecord record = new ConsultationRecord.Builder()

@@ -27,7 +27,7 @@ class PatientFactoryTest {
     @Ignore
     void testCopy() {
         Patient p = PatientFactory.build("james",60,"Male");
-        p = new Patient.Builder().clone(p).setfirstName("Earl").gender("Female").building();
+        p = new Patient.Builder().clone(p).firstName("Earl").gender("Female").building();
 
 
         Patient pCopy = PatientFactory.build("Earl",60,"Female");

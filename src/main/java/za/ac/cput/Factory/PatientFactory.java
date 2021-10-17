@@ -12,11 +12,11 @@ import java.util.UUID;
 
 public class PatientFactory {
     public static Patient build(String firstName, int age, String gender ){
-        if (firstName.isEmpty() || !gender.equals("Male") && !gender.equals("Female") || age <=0 )
-            return null;
-
+//        if (firstName.isEmpty() || !gender.equals("Male") && !gender.equals("Female") || age <=0 )
+//            return null;
+//
         String id = UUID.randomUUID().toString();
-        return new Patient.Builder().setID(id).setfirstName(firstName).age(age).gender(gender).building();
+        return new Patient.Builder().ID(id).firstName(firstName).age(age).gender(gender).building();
 
     }
 }

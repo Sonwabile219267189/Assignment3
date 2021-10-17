@@ -5,7 +5,15 @@ package za.ac.cput.Entity;
 //Author Stefan Groenewald(219104891)
 //Date 05/06/2021
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+
+@Entity
+@Table(name="Patient")
 public class Patient {
+    @Id
     private String patientID;
     private String firstName;
     private int age;
@@ -16,7 +24,7 @@ public class Patient {
     public void generateReport(){
         System.out.println("Patient{" +
                 "patientID=" + patientID +
-                ", setfirstName='" + firstName + '\'' +
+                ", firstName='" + firstName + '\'' +
                 ", age=" + age +
                 ", gender='" + gender + '\'' +
                 '}');
@@ -38,6 +46,14 @@ public class Patient {
         return patientID;
     }
 
+    public String getPatientName() {
+        return firstName;
+    }
+
+    public int getPatientAge(){return age;}
+
+    public String getGender(){return gender;}
+
     public void setPatientID(String patientID) {
         this.patientID = patientID;
     }
@@ -50,12 +66,12 @@ public class Patient {
         private String gender;
 
 
-        public Builder setID(String patientID) {
+        public Builder ID(String patientID) {
             this.patientID = patientID;
             return this;
         }
 
-        public Builder setfirstName(String firstName) {
+        public Builder firstName(String firstName) {
             this.firstName = firstName;
             return this;
         }
@@ -79,7 +95,7 @@ public class Patient {
         public String toString() {
             return "Builder{" +
                     "patientID=" + patientID +
-                    ", setfirstName='" + firstName + '\'' +
+                    ", firstName='" + firstName + '\'' +
                     ", age=" + age +
                     ", gender='" + gender + '\'' +
                     '}';

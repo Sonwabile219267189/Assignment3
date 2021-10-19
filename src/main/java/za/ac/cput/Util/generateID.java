@@ -8,7 +8,9 @@ package za.ac.cput.Util;
 import java.util.UUID;
 
 public class generateID {
+    public static String GenerateID(){
         return UUID.randomUUID().toString();
     }
+    }
 
-}
+

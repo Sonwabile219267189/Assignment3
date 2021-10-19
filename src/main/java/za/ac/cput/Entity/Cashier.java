@@ -5,79 +5,118 @@
  */
 package za.ac.cput.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 public class Cashier  {
 
-    private String cashierID = "988795";
-    private String name= "Felicia";
-    private String lastname= "Jacobs";
-    private double salary = 950.000;
+    private String itemID = "10001";
+    private String item= "Cough Syrup";
+    private int qty= 1;
+    private double unitPrice = 95.00;
+    private double discount = 0.00;
+    private double subtotal = 95.00;
+    private double total = 95.00;
 
     public Cashier(Builder builder) {
-        this.cashierID = builder.cashierID;
-        this.name = builder.name;
-        this.lastname = builder.lastname;
-        this.salary = builder.salary;
+        this.itemID = builder.itemID;
+        this.item = builder.item;
+        this.qty = builder.qty;
+        this.unitPrice = builder.unitPrice;
+        this.discount = builder.discount;
+        this.subtotal = builder.subtotal;
+        this.total= builder.total;
+    }
+
+    private Cashier() {
     }
 
     @Override
     public String toString() {
-        return "Builder{" +
-                "cashierID=" + cashierID +
-                ", name='" + name + '\'' +
-                ", lastname='" + lastname + '\'' +
-                ", salary=" + salary +
+        return "Cashier{" +
+                "itemID='" + itemID + '\'' +
+                ", item='" + item + '\'' +
+                ", qty=" + qty +
+                ", unitPrice=" + unitPrice +
+                ", subtotal=" + subtotal +
+                ", discount=" + discount +
+                ", total=" + total +
                 '}';
     }
 
-    public String getCashierID() {
-        return cashierID;
+    @JsonIgnore
+    public String getItemID() {
+
+        return itemID;
     }
 
-    protected Cashier(String cashierID, String name, String lastname, double salary) {
-        this.cashierID = cashierID;
-        this.name = name;
-        this.lastname = lastname;
-        this.salary = salary;
+
+    protected Cashier(String itemID, String item, int qty, double unitPrice,double discount, double subtotal , double total) {
+        this.itemID = itemID;
+        this.item = item;
+        this.qty = qty;
+        this.unitPrice = unitPrice;
+        this.discount = discount;
+        this.subtotal = subtotal;
+        this.total = total;
     }
 
     public static class Builder{
-        private String cashierID;
-        private String name;
-        private String lastname;
-        private double salary;
+        private String itemID;
+        private String item;
+        private int qty;
+        private double unitPrice;
+        private double discount;
+        private double subtotal;
+        private double total;
 
-
-        public Builder setCashierID(String cashierID) {
-            this.cashierID = cashierID;
+        public Builder setItemID(String itemID) {
+            this.itemID = itemID;
             return this;
         }
 
-
-        public Builder setName(String name) {
-            this.name = name;
+        public Builder setItem(String item) {
+            this.item = item;
             return this;
         }
 
-        public Builder setLastname(String lastname) {
-            this.lastname = lastname;
-
+        public Builder setQty(int qty) {
+            this.qty = qty;
             return this;
         }
 
-
-        public Builder setSalary(double salary) {
-            this.salary = salary;
+        public Builder setUnitPrice(double unitPrice) {
+            this.unitPrice = unitPrice;
             return this;
         }
+
+        public Builder setDiscount(double discount) {
+            this.discount = discount;
+            return this;
+        }
+
+        public Builder setSubtotal(double subtotal) {
+            this.subtotal = subtotal;
+            return this;
+        }
+
+        public Builder setTotal(double total) {
+            this.total = total;
+            return this;
+        }
+
         public Cashier build() {
-            return new Cashier (cashierID, name, lastname,salary);
+
+            return new Cashier (itemID,item,qty,unitPrice,discount,subtotal,total);
         }
 
         public Builder copy (Cashier cashier) {
-            this.cashierID = cashier.cashierID;
-            this.name = cashier.name;
-            this.lastname = cashier.lastname;
-            this.salary = cashier.salary;
+            this.itemID = cashier.itemID;
+            this.item = cashier.item;
+            this.qty = cashier.qty;
+            this.unitPrice = cashier.unitPrice;
+            this.discount = cashier.discount;
+            this.subtotal = cashier.subtotal;
+            this.total= cashier.total;
             return this;
         }
 

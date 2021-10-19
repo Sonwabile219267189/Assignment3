@@ -12,10 +12,10 @@ import java.util.Set;
 
 public class CashierRepository implements ICashierRepository{
 
-    private HashSet<Cashier> cashierDB=null;
+
     private static CashierRepository repository =null;
 
-
+    private Set<Cashier> cashierDB=null; // data structure, how the data is stored.
 
     public static CashierRepository getRepository(){
         if(repository == null){
@@ -36,9 +36,9 @@ public class CashierRepository implements ICashierRepository{
         return cashier;
 
     }
-    public Cashier read(String cashierID){
+    public Cashier read(String itemID){
         for (Cashier c: cashierDB){
-            if (c.getCashierID().equals(cashierID)){
+            if (c.getItemID().equals(itemID)){
                 return c;
             }
             return c;
@@ -48,7 +48,7 @@ public class CashierRepository implements ICashierRepository{
 
     @Override
     public Cashier update(Cashier cashier){
-        Cashier updateCashier = read(cashier.getCashierID());
+        Cashier updateCashier = read(cashier.getItemID());
         if(updateCashier!=null){
             cashierDB.remove(updateCashier);
             cashierDB.add(cashier);
@@ -58,9 +58,9 @@ public class CashierRepository implements ICashierRepository{
 
     }
     @Override
-    public boolean delete (String cashierID) {
+    public boolean delete (String itemID) {
 
-        Cashier cashierToDelete = read(cashierID);
+        Cashier cashierToDelete = read(itemID);
         if(cashierToDelete==null)
             return false;
         cashierDB.remove(cashierToDelete);

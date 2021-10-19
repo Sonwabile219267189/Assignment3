@@ -1,18 +1,24 @@
 package za.ac.cput.Service;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import za.ac.cput.Entity.Cashier;
+import za.ac.cput.Entity.Doctor;
 import za.ac.cput.Repository.CashierRepository;
 
+import java.util.Set;
+import java.util.stream.Collectors;
+
+
+@Service
 public class CashierService implements ICashierService{
 
     private static ICashierService service = null;
     private CashierRepository repository;
 
-    public CashierService() {
-    }
-
-    public CashierService(CashierRepository repository) {
-        this.repository = repository;
+@Autowired
+    public CashierService () {
+        this.repository = CashierRepository.getRepository();
     }
 
     public static ICashierService getService() {
@@ -27,8 +33,9 @@ public class CashierService implements ICashierService{
     }
 
     @Override
-    public Cashier read(String c) {
-       return this.repository.read(c);
+    public Cashier read(String itemID) {
+
+        return this.repository.read(itemID);
     }
 
     @Override
@@ -40,5 +47,9 @@ public class CashierService implements ICashierService{
     public boolean delete(String c) {
         this.repository.delete(c);
         return true;
+    }
+
+    public Set<Cashier> getAll(){
+    return this.repository.getAll();
     }
 }

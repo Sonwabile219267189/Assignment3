@@ -8,10 +8,11 @@ import za.ac.cput.Entity.Cashier;
 import za.ac.cput.Factory.CashierFactory;
 
 import static org.junit.jupiter.api.Assertions.*;
+
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class CashierRepositoryTest {
 
-   private static Cashier cashier = CashierFactory.createsCashier("14258","James","Zack",80.00);
+   private static Cashier cashier = CashierFactory.createsCashier("1001","Panado",1,95.00,0.00,95.00,95.00);
 
     private static CashierRepository cashierRepository = CashierRepository.getRepository();
 
@@ -20,7 +21,7 @@ class CashierRepositoryTest {
     @Order(1)
     void TestCreate() {
        Cashier create = cashierRepository.create(cashier);
-       assertEquals(create.getCashierID(),cashier.getCashierID());
+       assertEquals(create.getItemID(),cashier.getItemID());
         System.out.println("Create: " +create);
 
 
@@ -29,8 +30,8 @@ class CashierRepositoryTest {
     @Test
     @Order(2)
     void TestUpdate() {
-        Cashier update =new Cashier.Builder().copy(cashier).setName("Adam").build();
-       System.out.println(cashierRepository.update(update));
+        Cashier update =new Cashier.Builder().copy(cashier).setItem("Pain Pills").build();
+       System.out.println("Updated : "+cashierRepository.update(update));
        assertNotNull(cashierRepository.update(update));
 
     }
@@ -38,7 +39,7 @@ class CashierRepositoryTest {
     @Test
     @Order(3)
     void testRead() {
-        Cashier c = cashierRepository.read(cashier.getCashierID());
+        Cashier c = cashierRepository.read(cashier.getItemID());
         assertNotNull(c);
         System.out.println("Read: " +c);
     }
@@ -46,7 +47,7 @@ class CashierRepositoryTest {
     @Test
     @Order(4)
     void testDelete() {
-        Boolean success =cashierRepository.delete(cashier.getCashierID());
+        Boolean success =cashierRepository.delete(cashier.getItemID());
         assertTrue(success);
         System.out.println("Delete: " +success);
     }

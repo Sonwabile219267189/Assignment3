@@ -5,6 +5,9 @@ package za.ac.cput.Entity;
 //Author Stefan Groenewald(219104891)
 //Date 05/06/2021
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -12,6 +15,8 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="Patient")
+@Getter
+@Setter
 public class Patient {
     @Id
     private String patientID;

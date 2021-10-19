@@ -20,7 +20,6 @@ public class ControllerPatient {
 
     @PostMapping("/create")
     public Patient create(@RequestBody Patient patient){
-
        Patient newPatient = PatientFactory.build(patient.getPatientName(),patient.getPatientAge(),patient.getGender());
 
         return patientServices.create(newPatient);

@@ -26,12 +26,10 @@ class PatientFactoryTest {
     @Test
     @Ignore
     void testCopy() {
-        Patient p = PatientFactory.build("james",60,"Male");
-        p = new Patient.Builder().clone(p).firstName("Earl").gender("Female").building();
-
 
         Patient pCopy = PatientFactory.build("Earl",60,"Female");
-
+        Patient p = PatientFactory.build("james",60,"Male");
+        p = new Patient.Builder().clone(p).ID(pCopy.getPatientID()).firstName("Earl").gender("Female").building();
         assertEquals(p,pCopy);
 
 

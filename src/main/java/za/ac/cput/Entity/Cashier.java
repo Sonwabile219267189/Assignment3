@@ -49,8 +49,31 @@ public class Cashier  {
         return itemID;
     }
 
+    public String getItem() {
+        return item;
+    }
 
-    protected Cashier(String itemID, String item, int qty, double unitPrice,double discount, double subtotal , double total) {
+    public int getQty() {
+        return qty;
+    }
+
+    public double getUnitPrice() {
+        return unitPrice;
+    }
+
+    public double getDiscount() {
+        return discount;
+    }
+
+    public double getSubtotal() {
+        return subtotal;
+    }
+
+    public double getTotal() {
+        return total;
+    }
+
+    protected Cashier(String itemID, String item, int qty, double unitPrice, double discount, double subtotal , double total) {
         this.itemID = itemID;
         this.item = item;
         this.qty = qty;

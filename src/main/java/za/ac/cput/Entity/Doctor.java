@@ -6,14 +6,31 @@
 
 package za.ac.cput.Entity;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name="DoctorTable")
 public class Doctor
 {
-    private int doctorID;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id", nullable = false)
+    private Long id;
+
+    private String doctorID;
     private String firstName, lastName;
     private double salary;
 
+    public Long getId() {
+        return id;
+    }
 
-    public  Doctor(Builder builder){
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    private Doctor(){}
+    private Doctor(Builder builder){
         this.doctorID = builder.doctorID;
         this.firstName = builder.firstName;
         this.lastName = builder.lastName;
@@ -21,7 +38,8 @@ public class Doctor
     }
 
 
-    public int getDoctorID() {
+    public String getDoctorID()
+    {
         return doctorID;
     }
 
@@ -41,11 +59,11 @@ public class Doctor
 
     public static class Builder
     {
-        private int doctorID;
+        private String doctorID;
         private String firstName, lastName;
         private double salary;
 
-        public Builder  setDoctorID(int doctorID) {
+        public Builder  setDoctorID(String doctorID) {
             this.doctorID = doctorID;
             return this;
         }
@@ -80,7 +98,17 @@ public class Doctor
         }
 
     }
+    public Doctor setFirstName(String firstname)
+    {
+        this.firstName = firstname;
+        return this;
+    }
 
+    public Doctor setLastName(String lastname)
+    {
+        this.lastName = lastname;
+        return this;
+    }
     @Override
     public String toString() {
         return "Doctor{" +

@@ -19,8 +19,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class DoctorFactoryTest {
 
-    Doctor doctor1 = DoctorFactory.createDoctor(1035601,"Bheka", "Gumede", 45000.59);
-    Doctor doctor2 = DoctorFactory.createDoctor(202021,"Sizwe", "Qwabe", 41544.89);
+    Doctor doctor1 = DoctorFactory.createDoctor("Bheka", "Gumede", 45000.59);
+    Doctor doctor2 = DoctorFactory.createDoctor("Sizwe", "Qwabe", 41544.89);
 
     @Test
     public void doctorTest()

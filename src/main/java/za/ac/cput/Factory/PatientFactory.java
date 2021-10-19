@@ -16,7 +16,7 @@ public class PatientFactory {
             return null;
 
         String id = UUID.randomUUID().toString();
-        return new Patient.Builder().setID(id).setfirstName(firstName).age(age).gender(gender).building();
+        return new Patient.Builder().ID(id).firstName(firstName).age(age).gender(gender).building();
 
     }
 }

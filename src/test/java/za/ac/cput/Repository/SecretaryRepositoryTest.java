@@ -8,57 +8,52 @@ import org.junit.jupiter.api.Test;
 import za.ac.cput.Entity.Secretary;
 import za.ac.cput.Factory.SecretaryFactory;
 
+import java.util.stream.Collectors;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.jupiter.api.Assertions.*;
 
 class SecretaryRepositoryTest {
 
-    private static ISecretaryRepository repository = SecretaryRepository.getRepository();
+    private  ISecretaryRepository repository;
 
     private static Secretary secretary = SecretaryFactory.createSecretary("Xolani", "Ganta",12000.00);
 
 
     @Test
     void create() {
-        assertNotNull(repository.create(secretary));
-
-        System.out.println(repository.create(secretary));
+        Secretary created = repository.save(secretary);
+        assertEquals(secretary.getId(), created.getId());
+        System.out.println("Created: " + created);
     }
 
     @Test
     void read() {
-        Secretary readSecretary = repository.read(secretary.getId());
-
-        assertEquals("Xolani", readSecretary.getName());
-        System.out.println("Read: " + readSecretary.toString());
+        Secretary read = repository.findById(secretary.getId()).orElse(null);
+        assertNotNull(read);
+        System.out.println("Read: " + read);
     }
 
     @Test
     void update() {
-        System.out.println("Pre-update: "+ secretary.toString());
-
-        Secretary newSecretary = new Secretary.Builder().copy(secretary).setName("Damien").build();
-        Secretary updatedSecretary = repository.update(newSecretary);
-
-        assertEquals("Damien", updatedSecretary.getName());
-
-        System.out.println("Post-update: "+ updatedSecretary.toString());
-        System.out.println("Get all: ");
-        getAll();
+        Secretary updated = new Secretary.Builder()
+                .copy(secretary).setName("Rebecca")
+                .build();
+        updated = repository.save(updated);
+        assertEquals("Rebecca", repository.getOne(secretary.getId()).getName());
+        System.out.println("Updated: " + updated);
     }
 
     @Test
     void delete() {
-        repository.delete(secretary.getId());
-
-        System.out.println(repository.getAll());
+        repository.deleteById(secretary.getId());
+        assertNull(repository.findById(secretary.getId()));
     }
 
     @Test
     void getAll() {
-        assertNotNull(repository.getAll());
-
-        System.out.println(repository.getAll());
+        System.out.println("All Secretaries: " + repository.findAll().stream().collect(Collectors.toSet()));
+        assertEquals(1, repository.findAll().size());
     }
 }

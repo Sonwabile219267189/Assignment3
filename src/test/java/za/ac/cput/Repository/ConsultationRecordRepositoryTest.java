@@ -2,61 +2,58 @@ package za.ac.cput.Repository;
 
 import org.junit.jupiter.api.Test;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import za.ac.cput.Entity.ConsultationRecord;
 import za.ac.cput.Factory.ConsultationRecordFactory;
 
+
+import java.util.stream.Collectors;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.jupiter.api.Assertions.*;
 
 class ConsultationRecordRepositoryTest {
 
-    private static IConsultationRecordRepository repository = ConsultationRecordRepository.getRepository();
+    @Autowired
+    private  IConsultationRecordRepository repository ;
 
     private static ConsultationRecord consultationRecord = ConsultationRecordFactory.createConsultationRecord("Toothache");
 
     @Test
     void getAll() {
-        assertNotNull(repository.getAll());
-
-        System.out.println(repository.getAll());
+        System.out.println("All Consultation Records: " + repository.findAll().stream().collect(Collectors.toSet()));
+        assertEquals(1, repository.findAll().size());
     }
 
     @Test
     void create() {
-        assertNotNull(repository.create(consultationRecord));
-
-        System.out.println(repository.create(consultationRecord));
+        ConsultationRecord created = repository.save(consultationRecord);
+        assertEquals(consultationRecord.getConsultationId(), created.getConsultationId());
+        System.out.println("Created: " + created);
     }
 
     @Test
     void read() {
-        ConsultationRecord readConsultationRecord = repository.read(consultationRecord.getConsultationId());
-
-        assertEquals("Toothache", readConsultationRecord.getDescription());
-        System.out.println("Read: " + readConsultationRecord.toString());
+        ConsultationRecord read = repository.findById(consultationRecord.getConsultationId()).orElse(null);
+        assertNotNull(read);
+        System.out.println("Read: " + read);
     }
 
     @Test
     void update() {
-        System.out.println("Pre-update: "+ consultationRecord .toString());
-
-        ConsultationRecord  newConsultationRecord  = new ConsultationRecord .Builder().copy(consultationRecord ).setDescription("Eye check up").build();
-        ConsultationRecord  updatedConsultationRecord  = repository.update(newConsultationRecord );
-
-        assertEquals("eye check up", updatedConsultationRecord .getDescription());
-
-        System.out.println("Post-update: "+ updatedConsultationRecord .toString());
-        System.out.println("Get all: ");
-        getAll();
+        ConsultationRecord updated = new ConsultationRecord.Builder()
+                .copy(consultationRecord).setDescription("Eye Check Up")
+                .build();
+        updated = repository.save(updated);
+        assertEquals("Eye Check up", repository.getOne(consultationRecord.getConsultationId()).getDescription());
+        System.out.println("Updated: " + updated);
 
     }
 
     @Test
     void delete() {
-        repository.delete(consultationRecord.getConsultationId());
-
-        System.out.println(repository.getAll());
+        repository.deleteById(consultationRecord.getConsultationId());
+        assertNull(repository.findById(consultationRecord.getConsultationId()));
     }
 
 }

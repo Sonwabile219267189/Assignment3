@@ -5,21 +5,17 @@
  */
 package za.ac.cput.Entity;
 
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 public class Cashier  {
 
-    private Cashier() {
-    }
-
-    private String itemID ;
-    private String item;
-    private int qty;
-    private double unitPrice ;
-    private double discount ;
-    private double subtotal ;
-    private double total ;
+    private String itemID = "10001";
+    private String item= "Cough Syrup";
+    private int qty= 1;
+    private double unitPrice = 95.00;
+    private double discount = 0.00;
+    private double subtotal = 95.00;
+    private double total = 95.00;
 
     public Cashier(Builder builder) {
         this.itemID = builder.itemID;
@@ -31,7 +27,8 @@ public class Cashier  {
         this.total= builder.total;
     }
 
-
+    private Cashier() {
+    }
 
     @Override
     public String toString() {
@@ -45,7 +42,8 @@ public class Cashier  {
                 ", total=" + total +
                 '}';
     }
-@JsonIgnore
+
+    @JsonIgnore
     public String getItemID() {
 
         return itemID;
@@ -95,7 +93,7 @@ public class Cashier  {
         private double total;
 
         public Builder setItemID(String itemID) {
-            this.itemID=itemID;
+            this.itemID = itemID;
             return this;
         }
 

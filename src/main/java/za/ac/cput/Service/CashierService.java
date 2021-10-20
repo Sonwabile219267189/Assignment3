@@ -1,53 +1,44 @@
 package za.ac.cput.Service;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import za.ac.cput.Entity.Cashier;
-import za.ac.cput.Repository.ICashierRepository;
+import za.ac.cput.Repository.CashierRepository;
 
-import java.util.Set;
-import java.util.stream.Collectors;
-
-
-@Service
 public class CashierService implements ICashierService{
 
     private static ICashierService service = null;
+    private CashierRepository repository;
 
-    @Autowired
-    private ICashierRepository repository;
+    public CashierService() {
+    }
 
+    public CashierService(CashierRepository repository) {
+        this.repository = repository;
+    }
 
-    @Override
-    public Cashier create(Cashier cashier) {
-        return this.repository.save(cashier);
+    public static ICashierService getService() {
+        if (service==null)
+            service = new CashierService();
+        return service;
     }
 
     @Override
-    public Cashier read(String itemID) {
+    public Cashier create(Cashier cashier) {
+        return this.repository.create(cashier);
+    }
 
-        return this.repository.findById(itemID).orElse(null);
+    @Override
+    public Cashier read(String c) {
+       return this.repository.read(c);
     }
 
     @Override
     public Cashier update(Cashier cashier) {
-        if  (this.repository.existsById(cashier.getItemID()))
-            return this.repository.save(cashier);
-        return null;
+        return this.repository.update(cashier);
     }
 
     @Override
-    public boolean delete(String cashierID) {
-        this.repository.deleteById(cashierID);
-        if( this.repository.existsById(cashierID))
-            return false;
-        else
+    public boolean delete(String c) {
+        this.repository.delete(c);
         return true;
-    }
-
-    public Set<Cashier> getAll(){
-    return this.repository.findAll()
-            .stream()
-            .collect(Collectors.toSet());
     }
 }

@@ -1,5 +1,6 @@
-package za.ac.cput;
+package za.ac.cput.Controller;
 
+import org.hibernate.mapping.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import za.ac.cput.Entity.Secretary;
@@ -13,11 +14,12 @@ import java.util.Set;
 public class SecretaryController {
 
     @Autowired
-    // injecting the object of Secretary services into controllers so it can be manipulated over internet requests
+    // injecting the object of Auditor services into controllers so it can be manipulated over internet requests
     private SecretaryService secretaryService;
 
-    // methods as per the Secretary service impl
-    @PostMapping("/create") // Post is used to create a new secretary
+    // methods as per the Auditor service impl
+
+    @PostMapping("/create") // Post is used to create a new record
     public Secretary create(@RequestBody Secretary secretary){
         Secretary creatingNewSecretary = SecretaryFactory.createSecretary(secretary.getName(), secretary.getLastName(), secretary.getSalary());
         return secretaryService.create(creatingNewSecretary);

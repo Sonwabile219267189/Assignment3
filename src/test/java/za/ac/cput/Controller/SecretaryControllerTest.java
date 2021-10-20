@@ -1,4 +1,4 @@
-package za.ac.cput;
+package za.ac.cput.Controller;
 
 import org.junit.FixMethodOrder;
 import org.junit.Ignore;

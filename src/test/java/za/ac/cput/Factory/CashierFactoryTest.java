@@ -19,30 +19,32 @@ import static java.util.concurrent.TimeUnit.NANOSECONDS;
 import static org.junit.jupiter.api.Assertions.*;
 
 class CashierFactoryTest {
-    private CashierFactory cashier,cashier1,cashier2;
+    private CashierFactory cashier,cashier1;
 
     @BeforeEach
     void setUp() {
         cashier = cashier1;
-        cashier2 = cashier;
+        cashier1 = cashier;
     }
 
     @Test
     public void createCashier() {
-        Cashier cashier = CashierFactory.createsCashier("12345","Felicia", "Jacobs",950.000);
+        Cashier cashier = CashierFactory.createsCashier("1001","Cough Syrup",1,95.00,0.00,95.00,95.00);
+        Cashier cashier1 = CashierFactory.createsCashier("1002","Panado",1,100.00,0.00,100.00,100.00);
         System.out.println(cashier);
+        System.out.println(cashier1);
     }
 
     @Test
     public void testEquality(){
-        Assertions.assertEquals(cashier1,cashier2);
+        Assertions.assertEquals(cashier,cashier1);
 
     }
 
     @Test
     public void TestIdentity(){
 
-        Assertions.assertSame(cashier,cashier2);
+        Assertions.assertSame(cashier,cashier1);
     }
 
 

@@ -4,12 +4,13 @@
  */
 package za.ac.cput.Repository;
 
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 import za.ac.cput.Entity.Cashier;
 
 import java.util.Set;
 
-public interface ICashierRepository extends IRepository<Cashier,String>{
-
-    Set<Cashier> getAll();
+@Repository
+public interface ICashierRepository extends JpaRepository<Cashier,String> {
 
 }

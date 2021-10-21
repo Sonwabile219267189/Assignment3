@@ -16,15 +16,15 @@ import static org.junit.jupiter.api.Assertions.*;
 public class ReceiptFactoryTest {
     @Timeout(5)
     @Test
-    //test for valid input
+    //Valid input test
     public void ReceiptInput(){
-        Receipt rcp = ReceiptFactory.createReceiptItem();
+        Receipt rcp = ReceiptFactory.createReceiptItem("zg8585");
         assertNull(rcp.getReceiptID());
     }
     @Test
-    //test for receiptID against system receiptID
+    //ReceiptID against system receiptID
     public void ReceiptEquality(){
-        Receipt rcp = ReceiptFactory.createReceiptItem();
+        Receipt rcp = ReceiptFactory.createReceiptItem("zg8585");
         System.out.println("Receipt ID: "+rcp.getReceiptID());
         assertEquals("Receipt ID: ",rcp.getReceiptID());
     }
@@ -33,7 +33,7 @@ public class ReceiptFactoryTest {
     @Test
     //Disabling of Test
     public void ReceiptDisable(){
-        Receipt rcp = ReceiptFactory.createReceiptItem();
+        Receipt rcp = ReceiptFactory.createReceiptItem("zg8585");
         assertSame("Receipt ID: ",rcp.getReceiptID());
     }
 

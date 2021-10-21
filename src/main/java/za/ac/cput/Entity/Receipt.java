@@ -8,24 +8,24 @@ package za.ac.cput.Entity;
 
 public class Receipt {
 
-    private int receiptID;
+    private String receiptID;
 
     private Receipt(Builder builder){
 
         this.receiptID = builder.receiptID;
     }
 
-    public int getReceiptID() {
+    public String getReceiptID() {
         return receiptID;
     }
 
     public static class Builder {
 
-        private int receiptID;
+        private String receiptID;
 
 
 
-        public Builder setReceiptID(int receiptID) {
+        public Builder setReceiptID(String receiptID) {
             this.receiptID = receiptID;
             return this;
         }

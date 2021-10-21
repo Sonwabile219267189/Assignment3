@@ -3,6 +3,8 @@ package za.ac.cput.Service;
 import za.ac.cput.Entity.Receipt;
 import za.ac.cput.Repository.ReceiptRepository;
 
+import java.util.Set;
+
 public class ReceiptService implements IReceiptService{
 
     private static IReceiptService service = null;
@@ -32,7 +34,7 @@ public class ReceiptService implements IReceiptService{
     }
 
     @Override
-    public Receipt update(Receipt) {
+    public Receipt update(Receipt receipt) {
         return this.repository.update(receipt);
     }
 
@@ -41,4 +43,7 @@ public class ReceiptService implements IReceiptService{
         this.repository.delete(r);
         return true;
     }
+
+    @Override
+    public Set<Receipt> getAll(){return this.repository.getAll();}
 }

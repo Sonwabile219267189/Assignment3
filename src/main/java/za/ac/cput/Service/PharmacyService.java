@@ -3,6 +3,8 @@ package za.ac.cput.Service;
 import za.ac.cput.Entity.Pharmacy;
 import za.ac.cput.Repository.PharmacyRepository;
 
+import java.util.Set;
+
 public class PharmacyService implements IPharmacyService{
 
     private static IPharmacyService service = null;
@@ -32,13 +34,18 @@ public class PharmacyService implements IPharmacyService{
     }
 
     @Override
-    public Pharmacy update(Pharmacy) {
+    public Pharmacy update(Pharmacy pharmacy) {
         return this.repository.update(pharmacy);
     }
+
+    @Override
+    public Set<Pharmacy> getAll(){return this.repository.getAll();}
 
     @Override
     public boolean delete(String ph) {
         this.repository.delete(ph);
         return true;
+
     }
+
 }

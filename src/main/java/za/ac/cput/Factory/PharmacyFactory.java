@@ -7,19 +7,13 @@
 package za.ac.cput.Factory;
 
 import za.ac.cput.Entity.Pharmacy;
-import java.util.UUID;
+import za.ac.cput.Util.generateID;
 
 public class PharmacyFactory {
 
-    public static Pharmacy createPharmacyItem(int quantity, double price ){
+    public static Pharmacy createPharmacyItem(int quantity, double price){
         //unique ID for medicine
-        int medicineID = UUID.randomUUID().hashCode();
-
-        //null value check
-        if(quantity == 0 || price == 0){
-            System.out.println("Values required!");
-        }
-
+         String medicineID = generateID.GenerateID();
         Pharmacy ph = new Pharmacy.Builder().setPrice(price).setQuantity(quantity).setMedicineID(medicineID).build();
               return ph;
     }

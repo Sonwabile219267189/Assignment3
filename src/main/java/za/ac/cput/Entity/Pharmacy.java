@@ -8,7 +8,7 @@ package za.ac.cput.Entity;
 
 public class Pharmacy {
 
-    private int medicineID;
+    private String medicineID;
     private int quantity;
     private double price;
 
@@ -20,7 +20,7 @@ public class Pharmacy {
 
     }
 
-    public int getMedicineID() {
+    public String getMedicineID() {
         return medicineID;
     }
     public int getQuantity() {
@@ -31,13 +31,13 @@ public class Pharmacy {
     }
 
     public static class Builder {
-        private int medicineID;
+        private String medicineID;
         private double price;
         private int quantity;
 
 
 
-        public Builder setMedicineID(int medicineID) {
+        public Builder setMedicineID(String medicineID) {
 
             this.medicineID = medicineID;
             return this;

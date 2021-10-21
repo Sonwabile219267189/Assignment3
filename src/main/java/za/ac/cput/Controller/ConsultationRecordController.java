@@ -49,6 +49,6 @@ public class ConsultationRecordController {
 
     @GetMapping("/all")
     public Set getAll(){
-        return ConsultationRecordService.getAll();
+        return (Set) ConsultationRecordService.getAll();
     }
 }

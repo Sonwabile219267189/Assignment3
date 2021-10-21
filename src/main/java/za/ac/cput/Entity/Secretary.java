@@ -1,11 +1,16 @@
 package za.ac.cput.Entity;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
 /*  Secretary.java
     Entity for Secretary
     Author: Xolani Ganta (216066115)
     Date: 6 June 2021
  */
-
+@Entity
 public class Secretary {
+    @Id
     private String id,name, lastName;
     private Double salary;
 

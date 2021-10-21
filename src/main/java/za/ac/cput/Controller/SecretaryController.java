@@ -7,7 +7,6 @@ import za.ac.cput.Entity.Secretary;
 import za.ac.cput.Factory.SecretaryFactory;
 import za.ac.cput.Service.SecretaryService;
 
-import java.util.Set;
 
 @RestController
 @RequestMapping("/Assignment3/secretary") // class will be listening to requests through this path
@@ -48,6 +47,6 @@ public class SecretaryController {
 
     @GetMapping("/all")
     public Set getAll(){
-        return secretaryService.getAll();
+        return (Set) secretaryService.getAll();
     }
 }

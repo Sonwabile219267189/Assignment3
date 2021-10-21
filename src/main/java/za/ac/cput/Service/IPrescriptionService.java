@@ -1,4 +1,14 @@
+/**
+ * IPrescriptionService.java
+ * Author: Sonwabile Gxoyiya
+ */
 package za.ac.cput.Service;
 
-public interface IPrescriptionService {
+
+import za.ac.cput.Entity.Prescription;
+
+import java.util.List;
+
+public interface IPrescriptionService extends IService<Prescription, String>{
+    public List<Prescription> getAll();
 }

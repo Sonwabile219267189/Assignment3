@@ -7,9 +7,15 @@
 package za.ac.cput.Entity;
 
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "Prescription")
 public class Prescription {
 
+    @Id
     private String prescriptionID;
     private String medicineID;
     private String medicineName;

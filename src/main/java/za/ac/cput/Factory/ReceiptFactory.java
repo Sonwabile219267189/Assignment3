@@ -6,12 +6,12 @@
 
 package za.ac.cput.Factory;
 import za.ac.cput.Entity.Receipt;
-import java.util.UUID;
+import za.ac.cput.Util.generateID;
 
 public class ReceiptFactory {
-    public static Receipt createReceiptItem(){
+    public static Receipt createReceiptItem(String receiptID){
         //unique ID for receipt
-       int receiptID= UUID.randomUUID().hashCode();
+       receiptID= generateID.GenerateID();
 
         Receipt rcp = new Receipt.Builder().setReceiptID(receiptID).build();
         return rcp;

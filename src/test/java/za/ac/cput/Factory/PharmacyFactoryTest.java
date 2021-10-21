@@ -17,22 +17,23 @@ class PharmacyFactoryTest {
 
     @Timeout(5)
     @Test
-    //test for valid input entered
+    //Valid input test
     public void PharmacyItem(){
        Pharmacy ph = PharmacyFactory.createPharmacyItem(2,59.00);
         assertNull(ph.getMedicineID());
     }
     @Test
-    //test for price equals system price
+    //Price equals system price test
     public void PharmacyItemPrice(){
         Pharmacy ph = PharmacyFactory.createPharmacyItem(2,59.00);
         System.out.println("Price: "+ph.getPrice());
-        assertEquals("Price: ",ph.getPrice());
+        assertEquals(59.00,ph.getPrice());
     }
 
+    //Disable Test
     @Disabled("Test Disabled")
     @Test
-    //Disabling of Test
+
     public void PharmacyPrice(){
         Pharmacy ph = PharmacyFactory.createPharmacyItem(2, 59.00);
         assertSame(59,ph.getPrice());

@@ -2,9 +2,8 @@ package za.ac.cput.Repository;
 
 
 import za.ac.cput.Entity.Pharmacy;
-
-import java.util.HashSet
-import java.util.Set
+import java.util.HashSet;
+import java.util.Set;
 
 public class PharmacyRepository implements IPharmacyRepository
 {
@@ -34,9 +33,9 @@ public class PharmacyRepository implements IPharmacyRepository
     }
 
     @Override
-    public Pharmacy read(String pharmacyId){
+    public Pharmacy read(String medicineID){
         for (Pharmacy pharmacy : this.pharmacyDB){
-            if (pharmacy.getClass().equalsIgnoreCase(pharmacyId)){
+            if (pharmacy.getMedicineID().equalsIgnoreCase(medicineID));{
                 return pharmacy;
             }
 
@@ -45,8 +44,8 @@ public class PharmacyRepository implements IPharmacyRepository
     }
 
     @Override
-    public Pharmacy update(Pharmacy ph) {
-        delete(Pharmacy.getId());
+    public Pharmacy update(Pharmacy pharmacy) {
+        delete(pharmacy.getMedicineID());
 
         this.pharmacyDB.add(pharmacy);
         return pharmacy;

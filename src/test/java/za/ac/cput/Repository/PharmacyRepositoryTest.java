@@ -1,27 +1,20 @@
 package za.ac.cput.Repository;
 
-import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
-
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import za.ac.cput.Entity.Pharmacy;
 import za.ac.cput.Factory.PharmacyFactory;
-
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.jupiter.api.Assertions.*;
 
 class PharmacyRepositoryTest {
 
     private static IPharmacyRepository repository = PharmacyRepository.getRepository();
 
-    private static Pharmacy pharmacy = PharmacyFactory.createPharmacy(50.00,7777,2);
+    private static Pharmacy pharmacy = PharmacyFactory.createPharmacyItem(2,50.0);
 
 
     @Test
     void create() {
-        assertNotNull(repository.create(pharmacy));
+        Assertions.assertNotNull(repository.create(pharmacy));
 
         System.out.println(repository.create(pharmacy));
     }
@@ -30,7 +23,7 @@ class PharmacyRepositoryTest {
     void read() {
         Pharmacy readPharmacy = repository.read(pharmacy.getMedicineID());
 
-        assertEquals(7777, readPharmacy.getMedicineID());
+        Assertions.assertEquals("7777", readPharmacy.getMedicineID());
         System.out.println("Read: " + readPharmacy.toString());
     }
 
@@ -38,10 +31,10 @@ class PharmacyRepositoryTest {
     void update() {
         System.out.println("Pre-update: "+ pharmacy.toString());
 
-        Pharmacy newPharmacy = new Pharmacy.Builder().copy(pharmacy).setMedicineID(8888).build();
+        Pharmacy newPharmacy = new Pharmacy.Builder().copy(pharmacy).setMedicineID("8888").build();
         Pharmacy updatedPharmacy = repository.update(newPharmacy);
 
-        assertEquals(updatedPharmacy.getMedicineID());
+        Assertions.assertEquals("8888",updatedPharmacy.getMedicineID());
 
         System.out.println("Post-update: "+ updatedPharmacy.toString());
         System.out.println("Get all: ");
@@ -57,7 +50,7 @@ class PharmacyRepositoryTest {
 
     @Test
     void getAll() {
-        assertNotNull(repository.getAll());
+        Assertions.assertNotNull(repository.getAll());
 
         System.out.println(repository.getAll());
     }

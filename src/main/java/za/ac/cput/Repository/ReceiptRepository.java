@@ -37,7 +37,7 @@ public class ReceiptRepository implements IReceiptRepository {
     public Receipt read(String r) {
         for(Receipt receipt : this.receiptDB){
 
-            if(receipt.geReceiptId().equalsIgnoreCase(r)){
+            if(receipt.getReceiptID().equalsIgnoreCase(r)){
                 return receipt;
             }
 
@@ -47,7 +47,7 @@ public class ReceiptRepository implements IReceiptRepository {
 
     @Override
     public Receipt update(Receipt receipt) {
-        delete(receipt.getReceiptId());
+        delete(receipt.getReceiptID());
 
         this.receiptDB.add(receipt);
         return receipt;
